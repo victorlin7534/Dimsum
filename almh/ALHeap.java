@@ -22,7 +22,7 @@ public class ALHeap
    *****************************************************/
   public ALHeap() 
   { 
-  	_heap = new ArrayList<Integer>();
+    _heap = new ArrayList<Integer>();
   }
 
 
@@ -35,16 +35,16 @@ public class ALHeap
    *****************************************************/
   public String toString() 
   { 
-  	String str = "";
-  	int level = 0;
-  	for(int i=0;i<_heap.size();i++){
-  		if(i+1 == Math.pow(2,level)){
-  			str += "\n";
-  			level++;
-  		}
-  		str += _heap.get(i) + " ";
-  	}
-  	return str;
+    String str = "";
+    int level = 0;
+    for(int i=0;i<_heap.size();i++){
+      if(i+1 == Math.pow(2,level)){
+        str += "\n";
+        level++;
+      }
+      str += _heap.get(i) + " ";
+    }
+    return str;
   }//O(n)
 
   public String makeSpace(int num){
@@ -61,7 +61,7 @@ public class ALHeap
    *****************************************************/
   public boolean isEmpty()
   { 
-  	return _heap.size()==0;
+    return _heap.size()==0;
   }//O(1)
 
 
@@ -72,7 +72,7 @@ public class ALHeap
    *****************************************************/
   public Integer peekMin()
   { 
-  	return _heap.get(0);
+    return _heap.get(0);
   }//O(1)
 
 
@@ -87,7 +87,7 @@ public class ALHeap
    *****************************************************/
   public void add( Integer addVal )
   { 
-  	_heap.add(addVal);
+    _heap.add(addVal);
     for(int i=_heap.size()-1;i>0;i=(int)Math.floor((i-1)/2)){
       if(_heap.get(i).compareTo(_heap.get((int)Math.floor((i-1)/2)))<0)
         swap(i,(int)Math.floor((i-1)/2));
@@ -127,11 +127,11 @@ public class ALHeap
    *****************************************************/
   private int minChildPos( int pos )
   { 
-  	if(_heap.size()-1<pos||hasChild(pos))
-  		return -1;
-  	if(_heap.get(pos*2+1)<_heap.get(pos*2+2))
-  		return pos*2+1;
-  	return pos*2+2;
+    if(_heap.size()-1<pos||hasChild(pos))
+      return -1;
+    if(_heap.get(pos*2+1)<_heap.get(pos*2+2))
+      return pos*2+1;
+    return pos*2+2;
   }//O(1)
   
   private boolean hasChild(int pos){
@@ -142,15 +142,15 @@ public class ALHeap
   private Integer minOf( Integer a, Integer b )
   {
     if ( a.compareTo(b) < 0 )
-	    return a;
+      return a;
     else
-	    return b;
+      return b;
   }
 
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );  
   }
   //********************************************
 
